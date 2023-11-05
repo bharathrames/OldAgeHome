@@ -1,0 +1,218 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
+
+const RequirementsPage = ({ requirement }) => {
+  const [requirements, setRequirements] = useState([]);
+  const [selectedHomeName, setSelectedHomeName] = useState(null);
+
+  useEffect(() => {
+    let apiUrl = 'http://localhost:3001/api/requirements';
+  
+    if (selectedHomeName) {
+      apiUrl += `?homeName=${selectedHomeName}`;
+    }
+  
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => setRequirements(data))
+      .catch((error) => console.error('Error fetching data:', error));
+  }, [selectedHomeName]);
+
+  const formatDate = (isoDate) => {
+    const date = new Date(isoDate);
+    const day = date.getUTCDate().toString().padStart(2, '0');
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0'); 
+    const year = date.getUTCFullYear();
+    return `${day}/${month}/${year}`;
+  };
+  
+  return (
+
+    <>
+    <div>
+        <button className='backbutton'><Link to="/">⬅️ Back</Link></button>
+      <p className='herobanner'>Hero Banner</p>
+      <hr/>
+      <div>
+        <h3>Home Name:{requirement.homeName}</h3>
+        <h3>Home Description:{requirement.homeDescription}</h3>
+      </div>
+    </div>
+    <div>
+    <h3>HOME <span> <select onChange={(e) => setSelectedHomeName(e.target.value)}>
+            <option value="">All</option>
+            <option value="oldagehome1">OldAgeHome 1</option>
+            <option value="oldagehome2">OldAgeHome 2</option>
+          </select>
+   </span></h3>
+   </div>
+    <table>
+      <thead>
+        <tr>
+          <th className='coloumnheading'>Priority</th>
+          <th className='coloumnheading'>DateofPosting</th>
+          <th className='coloumnheading'>ItemCat</th>
+          <th className='coloumnheading'>Item</th>
+          <th className='coloumnheading'>Unit</th>
+          <th className="coloumnheading">SKU(Stock keeping unit)</th>
+          <th className='coloumnheading'>Budget</th>
+        </tr>
+      </thead>
+      <tbody>
+  {requirements
+    .filter((requirement) => {
+      if (!selectedHomeName) {
+        return true; 
+      }
+      return requirement.homeName === selectedHomeName;
+    })
+    .map((requirement, index) => (
+      <tr key={index}>
+        <td>{requirement.priority}</td>
+        <td>{formatDate(requirement.dateOfPosting)}</td>
+        <td>{requirement.itemCat}</td>
+        <td>{requirement.item}</td>
+        <td>{requirement.unit}</td>
+        <td>{requirement.SKU}</td>
+        <td>{requirement.budget}</td>
+      </tr>
+    ))
+  }
+</tbody>
+    </table>
+
+    <div>
+        <h3>Contact:{requirement.contact}</h3>
+        <h3>Address:{requirement.address}</h3>
+        <h3>Bank Acc Details</h3>
+        <h5>Bank Name:{requirement.bankDetails.bankName}</h5>
+        <h5>account No:{requirement.bankDetails.accountNo}</h5>
+        <h5>IFSC code: {requirement.bankDetails.ifscCode}</h5>
+        <h5>Branch Name:{requirement.bankDetails.branchName}</h5>
+      </div>
+    </>
+  );
+};
+
+export default RequirementsPage;
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
+
+const RequirementsPage = () => {
+  const [requirements, setRequirements] = useState([]);
+  const [selectedHomeName, setSelectedHomeName] = useState(null);
+  const [selectedHome, setSelectedHome] = useState(null);
+  
+  useEffect(() => {
+    let apiUrl = 'http://localhost:3001/api/requirements';
+    fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => setRequirements(data))
+    .catch((error) => console.error('Error fetching data:', error));
+}, []);
+
+  const formatDate = (isoDate) => {
+    const date = new Date(isoDate);
+    const day = date.getUTCDate().toString().padStart(2, '0');
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0'); 
+    const year = date.getUTCFullYear();
+    return `${day}/${month}/${year}`;
+  };
+  
+  useEffect(() => {
+    const home = requirements.find((req) => req.homeName === selectedHomeName);
+    setSelectedHome(home);
+  }, [selectedHomeName, requirements]);
+  const uniqueHomeNames = new Set(requirements.map((requirement) => requirement.homeName));
+  const homeNamesArray = Array.from(uniqueHomeNames);
+
+
+  return (
+
+    <>
+    <div>
+        <button className='backbutton'><Link to="/">⬅️ Back</Link></button>
+      <p className='herobanner'>Hero Banner</p>
+      <hr/>
+      <div>
+      <h3>Home Name: {selectedHomeName}</h3>
+      {selectedHome && (
+            <h3>Home Description: {selectedHome.homeDescription}</h3>
+          )}
+      </div>
+    </div>
+    <div>
+    <h3>
+          HOME{' '}
+          <span>
+            <select onChange={(e) => setSelectedHomeName(e.target.value)}>
+              <option value="">All</option>
+              {homeNamesArray.map((homeName, index) => (
+                <option key={index} value={homeName}>
+                  {homeName}
+                </option>
+              ))}
+            </select>
+          </span>
+        </h3>
+   </div>
+    <table>
+      <thead>
+        <tr>
+          <th className='coloumnheading'>Priority</th>
+          <th className='coloumnheading'>DateofPosting</th>
+          <th className='coloumnheading'>ItemCat</th>
+          <th className='coloumnheading'>Item</th>
+          <th className='coloumnheading'>Unit</th>
+          <th className="coloumnheading">SKU(Stock keeping unit)</th>
+          <th className='coloumnheading'>Budget</th>
+        </tr>
+      </thead>
+      <tbody>
+  {requirements
+    .filter((requirement) => {
+      if (!selectedHomeName) {
+        return true; 
+      }
+      return requirement.homeName === selectedHomeName;
+    })
+    .map((requirement, index) => (
+      <tr key={index}>
+        <td>{requirement.priority}</td>
+        <td>{formatDate(requirement.dateOfPosting)}</td>
+        <td>{requirement.itemCat}</td>
+        <td>{requirement.item}</td>
+        <td>{requirement.unit}</td>
+        <td>{requirement.SKU}</td>
+        <td>{requirement.budget}</td>
+      </tr>
+    ))
+  }
+</tbody>
+    </table>
+
+    <div>
+    {selectedHomeName &&
+          requirements.map((requirement) => {
+            if (requirement.homeName === selectedHomeName) {
+              return (
+                <div key={requirement.id}>
+                  <h3>Contact: {requirement.contact}</h3>
+                  <h3>Address: {requirement.address}</h3>
+                  <h3>Bank Acc Details</h3>
+                  <h5>Bank Name: {requirement.bankDetails.bankName}</h5>
+                  <h5>Account No: {requirement.bankDetails.accountNo}</h5>
+                  <h5>IFSC code: {requirement.bankDetails.ifscCode}</h5>
+                  <h5>Branch Name: {requirement.bankDetails.branchName}</h5>
+                </div>
+              );
+            }
+            return null;
+          })}
+      </div>
+    </>
+  );
+};
+
+export default RequirementsPage;
