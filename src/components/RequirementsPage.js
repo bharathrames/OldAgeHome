@@ -6,7 +6,7 @@ const RequirementsPage = () => {
   const [selectedHomeName, setSelectedHomeName] = useState(null);
 
   useEffect(() => {
-    let apiUrl = 'http://localhost:3001/api/requirements';
+    let apiUrl = 'https://oldagehome.onrender.com/api/requirements';
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => setRequirements(data))

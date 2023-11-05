@@ -60,7 +60,7 @@ const AdminDashboard = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/api/requirements', {
+      const response = await fetch('https://oldagehome.onrender.com/api/requirements', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
