@@ -27,6 +27,8 @@ const AdminDashboard = () => {
       ifscCode: '',
       branchName: '',
     },
+    memberCount: 0,
+    paymentNumber: '',
   });
 
   const handleInputChange = (e) => {
@@ -60,7 +62,7 @@ const AdminDashboard = () => {
     }
 
     try {
-      const response = await fetch('https://oldagehome.onrender.com/api/requirements', {
+      const response = await fetch('http://localhost:3001/api/requirements', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -142,6 +144,26 @@ const AdminDashboard = () => {
         <div>
           <label>Branch Name:</label>
           <input type="text" name="bankDetails.branchName" value={requirement.bankDetails.branchName} onChange={handleInputChange} />
+        </div>
+        <div>
+          <label>Member Count:</label>
+          <input
+            type="number"
+            name="memberCount"
+            value={requirement.memberCount}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Gpay|phonepay|paytm</label>
+          <input
+            type="text"
+            name="paymentNumber"
+            value={requirement.paymentNumber}
+            onChange={handleInputChange}
+            required
+          />
         </div>
         <button type="submit">Submit</button>
       </form>
