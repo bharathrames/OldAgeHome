@@ -135,7 +135,7 @@
 } 
 
 .fade-in {
-  animation: fadeIn 2.5s ease-in-out; /* You can adjust the duration and timing function */
+  animation: fadeIn 2.5s ease-in-out; 
 }
 
 @keyframes fadeIn {

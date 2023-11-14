@@ -86,7 +86,7 @@ const Home = () => {
 
   return (
     <>
-      <SiteName>GoldenYearsSupportHub</SiteName>
+      <SiteName>SecondChildhoodSupportHub</SiteName>
       <CarouselWrapper>
         <Slider ref={sliderRef} {...settings}>
           <div>
@@ -103,8 +103,9 @@ const Home = () => {
         <NextButton onClick={handleNextClick}><FaChevronRight /></NextButton>
       </CarouselWrapper>
       <Paragraph>
-      <span className='GoldenYearsSupportHub'>GoldenYearsSupportHub</span> is a comprehensive platform dedicated to addressing the unique needs of senior citizens in 
-      search of a nurturing and comfortable old age home. The website serves as a vital resource, outlining the specific requirements for these homes. 
+      <span className='GoldenYearsSupportHub'>SecondChildhoodSupportHub</span> is a Service platform dedicated to addressing the 
+      unique needs of senior citizens in search of a caring and convenient old age home. The website serves as a significant resource, 
+      sharing the specific requirements for these homes. 
       </Paragraph>
     </>
   );

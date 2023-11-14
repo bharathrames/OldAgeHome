@@ -4,20 +4,28 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { AiOutlineLeft } from 'react-icons/ai';
 
-const BackButton = styled.button`
-  background-color: #4caf50;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+const HeroBanner = styled.div`
+  background-image: url('https://cdn.pixabay.com/photo/2016/01/28/10/20/old-man-1166066_640.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 50px;
+  font-size: 36px;
 `;
 
-const HeroBanner = styled.p`
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
+const BackButton = styled.button`
+background-color: #4caf50;
+color: white;
+padding: 10px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+position: absolute;
+top: 10px;
+left: 10px;
 `;
+
 
 const Heading = styled.h5`
   font-size: 20px;
@@ -106,13 +114,18 @@ const RequirementsPage = () => {
   return (
     <>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-        <BackButton>
+        <HeroBanner>
+          <span><BackButton>
           <Link to="/">
             <AiOutlineLeft /> Back
           </Link>
-        </BackButton>
-        <HeroBanner>Hero Banner</HeroBanner>
-        <hr />
+        </BackButton></span>
+  <motion.p  initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0, transition: { delay: 0.5, duration: 1.5 } }}
+            exit={{ opacity: 0, y: -50 }} >
+  Embracing Golden Years with Dignity and Care
+  </motion.p>
+</HeroBanner>
         <div>
           <Heading>Home Name: {selectedHomeName}</Heading>
           {selectedHomeName && (

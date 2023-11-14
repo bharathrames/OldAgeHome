@@ -53,7 +53,6 @@ const AdminDashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if any required field is empty
     for (const key in requirement) {
       if (requirement[key] === '') {
         alert('Please fill in all required fields');
