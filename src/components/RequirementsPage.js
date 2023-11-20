@@ -40,6 +40,7 @@ const TableCellHeading = styled.th`
   background-color: #4caf50;
   color: white;
   padding: 10px;
+  text-align: center;
 `;
 
 const TableCell = styled.td`
@@ -48,25 +49,26 @@ const TableCell = styled.td`
 `;
 
 const AdditionalInfoWrapper = styled.div`
-  margin-top: 20px;
+margin-top: 10px;
 `;
 
 const AdditionalInfoHeading = styled.h5`
   font-size: 18px;
   color: #333;
-  margin-top: 10px;
+  
 `;
 
 const AdditionalInfoItem = styled.p`
   font-size: 16px;
-  margin-bottom: 5px;
+  font-weight: 500;
 `;
 const RequirementsPage = () => {
   const [requirements, setRequirements] = useState([]);
   const [selectedHomeName, setSelectedHomeName] = useState(null);
 
   useEffect(() => {
-    let apiUrl = 'http://localhost:3001/api/requirements';
+    // let apiUrl = 'http://localhost:3001/api/requirements';
+    let apiUrl = 'https://oldagehome.onrender.com/api/requirements'
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => setRequirements(data))
@@ -127,10 +129,10 @@ const RequirementsPage = () => {
   </motion.p>
 </HeroBanner>
         <div>
-          <Heading>Home Name: {selectedHomeName}</Heading>
+          <Heading>Home Name: <span className='homedes'>{selectedHomeName}</span></Heading>
           {selectedHomeName && (
             <div>
-              <Heading>Home Description: {groupedRequirements[selectedHomeName].homeDescription}</Heading>
+              <Heading>Home Description: <span className='homedes'>{groupedRequirements[selectedHomeName].homeDescription}</span></Heading>
             </div>
           )}
         </div>
@@ -156,12 +158,12 @@ const RequirementsPage = () => {
             <thead>
               <tr>
                 <TableCellHeading>Priority</TableCellHeading>
-                <TableCellHeading>DateofPosting</TableCellHeading>
-                <TableCellHeading>ItemCat</TableCellHeading>
+                <TableCellHeading>Date of Posting</TableCellHeading>
+                <TableCellHeading>Item category</TableCellHeading>
                 <TableCellHeading>Item</TableCellHeading>
                 <TableCellHeading>Unit</TableCellHeading>
                 <TableCellHeading>SKU(Stock keeping unit)</TableCellHeading>
-                <TableCellHeading>Budget</TableCellHeading>
+                <TableCellHeading>Budget ₹</TableCellHeading>
               </tr>
             </thead>
             <tbody>
@@ -195,22 +197,22 @@ const RequirementsPage = () => {
         {selectedHomeName && (
           <div>
             <AdditionalInfoHeading>Contact Information</AdditionalInfoHeading>
-            <AdditionalInfoItem>Contact: {groupedRequirements[selectedHomeName].contact}</AdditionalInfoItem>
-            <AdditionalInfoItem>Address: {groupedRequirements[selectedHomeName].address}</AdditionalInfoItem>
+            <AdditionalInfoItem>Contact: <span className='alldetails'>{groupedRequirements[selectedHomeName].contact}</span></AdditionalInfoItem>
+            <AdditionalInfoItem>Address: <span className='alldetails'>{groupedRequirements[selectedHomeName].address}</span></AdditionalInfoItem>
 
             <AdditionalInfoHeading>Bank Account Details</AdditionalInfoHeading>
-            <AdditionalInfoItem>Bank Name: {groupedRequirements[selectedHomeName].bankDetails.bankName}</AdditionalInfoItem>
-            <AdditionalInfoItem>Account No: {groupedRequirements[selectedHomeName].bankDetails.accountNo}</AdditionalInfoItem>
-            <AdditionalInfoItem>IFSC code: {groupedRequirements[selectedHomeName].bankDetails.ifscCode}</AdditionalInfoItem>
-            <AdditionalInfoItem>Branch Name: {groupedRequirements[selectedHomeName].bankDetails.branchName}</AdditionalInfoItem>
+            <AdditionalInfoItem>Bank Name: <span className='alldetails'>{groupedRequirements[selectedHomeName].bankDetails.bankName}</span></AdditionalInfoItem>
+            <AdditionalInfoItem>Account No: <span className='alldetails'>{groupedRequirements[selectedHomeName].bankDetails.accountNo}</span></AdditionalInfoItem>
+            <AdditionalInfoItem>IFSC code: <span className='alldetails'>{groupedRequirements[selectedHomeName].bankDetails.ifscCode}</span></AdditionalInfoItem>
+            <AdditionalInfoItem>Branch Name: <span className='alldetails'>{groupedRequirements[selectedHomeName].bankDetails.branchName}</span></AdditionalInfoItem>
 
             <AdditionalInfoHeading>Payment Information</AdditionalInfoHeading>
             <AdditionalInfoItem>
-              Gpay, Phonepay, Paytm Number: {groupedRequirements[selectedHomeName].paymentNumber}
+              Gpay, Phonepay, Paytm Number: <span className='alldetails'>{groupedRequirements[selectedHomeName].paymentNumber}</span>
             </AdditionalInfoItem>
 
             <AdditionalInfoHeading>Member Information</AdditionalInfoHeading>
-            <AdditionalInfoItem>Member Count: {groupedRequirements[selectedHomeName].memberCount}</AdditionalInfoItem>
+            <AdditionalInfoItem>Member Count:<span className='alldetails'> {groupedRequirements[selectedHomeName].memberCount}</span></AdditionalInfoItem>
           </div>
         )}
       </AdditionalInfoWrapper>

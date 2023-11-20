@@ -18,7 +18,6 @@ const Paragraph = styled.p`
   color: #333;
   line-height: 1.5;
   margin-bottom: 30px;
-  text-align: center;
 `;
 
 
@@ -93,7 +92,7 @@ const Home = () => {
 
   return (
     <>
-      <SiteName>SecondChildhoodSupportHub</SiteName>
+      <SiteName>Second Childhood Support Hub</SiteName>
       <CarouselWrapper>
         <Slider ref={sliderRef} {...settings}>
           <div>
@@ -110,8 +109,10 @@ const Home = () => {
         <NextButton onClick={handleNextClick}><FaChevronRight /></NextButton> 
       </CarouselWrapper>
       <Paragraph className='belowcontainer'>
-      Welcome to <span className='GoldenYearsSupportHub'>SecondChildhoodSupportHub</span>, a platform dedicated to making a difference in the lives of our cherished elderly community. As we strive to create a haven for the elderly in need, your support becomes the foundation of our mission. Discover how you can contribute to the well-being of our senior citizens by understanding the essential requirements of old age homes.
-
+      <p id='paragraphcontent'>Welcome to Second Childhood Support Hub, a platform dedicated to making a difference in the lives of our 
+      cherished elderly community. As we strive to create a haven for the elderly in need, your support becomes the foundation of our mission. 
+      Discover how you can contribute to the well-being of our senior citizens by understanding the essential requirements of old age homes.
+      </p>
 <h4>The Requirements of Old Age Homes:</h4>
 
 <h5>Comfortable Living Spaces:</h5>
