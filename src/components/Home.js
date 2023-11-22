@@ -135,7 +135,7 @@ const Home = () => {
 
 <h5>How You Can Make a Difference:</h5>
 
-<p>Your support matters. By contributing to SecondChildhoodSupportHub, you become a vital part of creating a nurturing and supportive space for our elderly residents. Together, we can make their twilight years truly golden.
+<p>Your support matters. By contributing to Second Childhood SupportHub, you become a vital part of creating a nurturing and supportive space for our elderly residents. Together, we can make their twilight years truly golden.
 
 Donate Now to make a positive impact on the lives of those who have paved the way for us.</p>
 

@@ -67,8 +67,8 @@ const RequirementsPage = () => {
   const [selectedHomeName, setSelectedHomeName] = useState(null);
 
   useEffect(() => {
-    // let apiUrl = 'http://localhost:3001/api/requirements';
-    let apiUrl = 'https://oldagehome.onrender.com/api/requirements'
+     //let apiUrl = 'http://localhost:3001/api/requirements';
+     let apiUrl = 'https://oldagehome.onrender.com/api/requirements'
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => setRequirements(data))
@@ -104,7 +104,6 @@ const RequirementsPage = () => {
         itemCat: requirement.itemCat,
         item: requirement.item,
         unit: requirement.unit,
-        SKU: requirement.SKU,
         budget: requirement.budget,
       });
     });
@@ -162,7 +161,7 @@ const RequirementsPage = () => {
                 <TableCellHeading>Item category</TableCellHeading>
                 <TableCellHeading>Item</TableCellHeading>
                 <TableCellHeading>Unit</TableCellHeading>
-                <TableCellHeading>SKU(Stock keeping unit)</TableCellHeading>
+                {/* <TableCellHeading>SKU(Stock keeping unit)</TableCellHeading> */}
                 <TableCellHeading>Budget ₹</TableCellHeading>
               </tr>
             </thead>
@@ -175,7 +174,7 @@ const RequirementsPage = () => {
                       <TableCell>{item.itemCat}</TableCell>
                       <TableCell>{item.item}</TableCell>
                       <TableCell>{item.unit}</TableCell>
-                      <TableCell>{item.SKU}</TableCell>
+                      {/* <TableCell>{item.SKU}</TableCell> */}
                       <TableCell>{item.budget}</TableCell>
                     </tr>
                   ))
@@ -186,7 +185,7 @@ const RequirementsPage = () => {
                       <TableCell>{item.itemCat}</TableCell>
                       <TableCell>{item.item}</TableCell>
                       <TableCell>{item.unit}</TableCell>
-                      <TableCell>{item.SKU}</TableCell>
+                      {/* <TableCell>{item.SKU}</TableCell> */}
                       <TableCell>{item.budget}</TableCell>
                     </tr>
                   ))}
