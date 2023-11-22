@@ -4,6 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import bigbrainImage from './images/bigbrain.jpg.jpeg';
 
 const SiteName = styled.div`
   font-size: 36px;
@@ -20,6 +21,11 @@ const Paragraph = styled.p`
   margin-bottom: 30px;
 `;
 
+const BottomImage = styled.img`
+width: 250px;
+height: auto;
+float:right
+`;
 
 
 const CarouselWrapper = styled.div`
@@ -106,40 +112,40 @@ const Home = () => {
           </div>
         </Slider>
         <PrevButton onClick={handlePrevClick}><FaChevronLeft /></PrevButton>
-        <NextButton onClick={handleNextClick}><FaChevronRight /></NextButton> 
+        <NextButton onClick={handleNextClick}><FaChevronRight /></NextButton>
       </CarouselWrapper>
       <Paragraph className='belowcontainer'>
-      <p id='paragraphcontent'>Welcome to Second Childhood Support Hub, a platform dedicated to making a difference in the lives of our 
-      cherished elderly community. As we strive to create a haven for the elderly in need, your support becomes the foundation of our mission. 
-      Discover how you can contribute to the well-being of our senior citizens by understanding the essential requirements of old age homes.
-      </p>
-<h4>The Requirements of Old Age Homes:</h4>
+        <p id='paragraphcontent'>Welcome to Second Childhood Support Hub, a platform dedicated to making a difference in the lives of our
+          cherished elderly community. As we strive to create a haven for the elderly in need, your support becomes the foundation of our mission.
+          Discover how you can contribute to the well-being of our senior citizens by understanding the essential requirements of old age homes.
+        </p>
+        <h4>The Requirements of Old Age Homes:</h4>
 
-<h5>Comfortable Living Spaces:</h5>
-<p>Ensure that our seniors enjoy a warm and comfortable environment by supporting the provision of well-designed living spaces. Your contribution helps us create a home where they feel safe and valued.</p>
+        <h5>Comfortable Living Spaces:</h5>
+        <p>Ensure that our seniors enjoy a warm and comfortable environment by supporting the provision of well-designed living spaces. Your contribution helps us create a home where they feel safe and valued.</p>
 
-<h5>Healthcare Facilities:</h5>
-<p>Uphold the health and vitality of our elderly residents by contributing to state-of-the-art healthcare facilities. From regular check-ups to specialized care, your support ensures their well-being.</p>
+        <h5>Healthcare Facilities:</h5>
+        <p>Uphold the health and vitality of our elderly residents by contributing to state-of-the-art healthcare facilities. From regular check-ups to specialized care, your support ensures their well-being.</p>
 
-<h5>Nutritious Meals:</h5>
-<p>Help us provide nutritious and balanced meals to our seniors. Your donation directly contributes to their health and vitality, ensuring they receive the nutrition necessary for a fulfilling life.</p>
+        <h5>Nutritious Meals:</h5>
+        <p>Help us provide nutritious and balanced meals to our seniors. Your donation directly contributes to their health and vitality, ensuring they receive the nutrition necessary for a fulfilling life.</p>
 
-<h5>Recreational Activities:</h5>
-<p>Enrich the lives of our elderly by supporting recreational activities. From cultural events to hobby clubs, your contribution fosters a vibrant community that promotes mental and emotional well-being.</p>
+        <h5>Recreational Activities:</h5>
+        <p>Enrich the lives of our elderly by supporting recreational activities. From cultural events to hobby clubs, your contribution fosters a vibrant community that promotes mental and emotional well-being.</p>
 
-<h5>Trained Staff and Caregivers:</h5>
-<p>Support the hiring and training of compassionate staff and caregivers. Your donation ensures that our elderly residents receive the attention and care they deserve, creating a supportive and loving community.</p>
+        <h5>Trained Staff and Caregivers:</h5>
+        <p>Support the hiring and training of compassionate staff and caregivers. Your donation ensures that our elderly residents receive the attention and care they deserve, creating a supportive and loving community.</p>
 
-<h5>Safety and Security:</h5>
-<p>Help us maintain a secure environment by supporting safety measures within our facilities. Your contribution ensures that our elderly residents feel protected and can enjoy their golden years without worry.</p>
+        <h5>Safety and Security:</h5>
+        <p>Help us maintain a secure environment by supporting safety measures within our facilities. Your contribution ensures that our elderly residents feel protected and can enjoy their golden years without worry.</p>
 
-<h5>How You Can Make a Difference:</h5>
+        <h5>How You Can Make a Difference:</h5>
 
-<p>Your support matters. By contributing to Second Childhood SupportHub, you become a vital part of creating a nurturing and supportive space for our elderly residents. Together, we can make their twilight years truly golden.
-
-Donate Now to make a positive impact on the lives of those who have paved the way for us.</p>
-
+        <p>Your support matters. By contributing to Second Childhood SupportHub, you become a vital part of creating a nurturing and supportive space for our elderly residents. Together, we can make their twilight years truly golden.
+          Donate Now to make a positive impact on the lives of those who have paved the way for us. <span><BottomImage src={bigbrainImage} alt="Bottom Image" /></span></p>
+          
       </Paragraph>
+   
     </>
   );
 };
