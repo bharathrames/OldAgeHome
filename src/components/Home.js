@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import bigbrainImage from './images/bigbrain.jpg.jpeg';
+import Loading from './Loading';
 
 const SiteName = styled.div`
   font-size: 36px;
@@ -145,8 +146,8 @@ const Home = () => {
           Donate Now to make a positive impact on the lives of those who have paved the way for us. <span><BottomImage src={bigbrainImage} alt="Bottom Image" /></span></p>
           
       </Paragraph>
-   
     </>
+
   );
 };
 

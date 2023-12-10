@@ -3,7 +3,7 @@ import './GalleryPage.css'
 const Gallery = () => {
   return (
     <>
-    <div className='gallery title'>Second Childhood SupportHub Gallery</div>
+    <div className='gallerytitle'>Second Childhood SupportHub Gallery</div>
     <div class="gallery">
   <img src='https://atct.in/gallery/gallery_img/G032.jpg' alt="" />
   <img src="https://assets.codepen.io/1506195/unsplash-7.jpg" alt="" />
