@@ -99,6 +99,7 @@ const Home = () => {
 
   return (
     <>
+    <div className="homebackground">
       <SiteName>Second Childhood Support Hub</SiteName>
       <CarouselWrapper>
         <Slider ref={sliderRef} {...settings}>
@@ -146,6 +147,7 @@ const Home = () => {
           Donate Now to make a positive impact on the lives of those who have paved the way for us. <span><BottomImage src={bigbrainImage} alt="Bottom Image" /></span></p>
           
       </Paragraph>
+      </div>
     </>
 
   );
